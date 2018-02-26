@@ -11,11 +11,18 @@ public class Usuario {
 	private int edad;
 	private String dni;
 	private Date fecha_nacimiento;
+	private int cuota;
 	private ArrayList<Prestamo> prestamos;
 	
 	
 	
 	
+	public float getCuota() {
+		return cuota;
+	}
+	public void setCuota(int cuota) {
+		this.cuota = cuota;
+	}
 	public String getDni() {
 		return dni;
 	}
@@ -59,8 +66,24 @@ public class Usuario {
 		this.prestamos = prestamos;
 	}
 	
-	
-	
+	public int calcularCuota(int edad){
+		if(edad < 18){
+			this.cuota = 10;
+			return this.cuota;
+		}
+		else if(edad >= 18 && edad < 25){
+			this.cuota = 15;
+			return this.cuota;
+		}
+		else if(edad >=25 && edad < 65){
+			this.cuota = 20;
+			return this.cuota;
+		}
+		else{
+			this.cuota = 10;
+			return this.cuota;
+		}
+	}
 	
 
 }
